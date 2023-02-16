@@ -10,13 +10,10 @@ async function main() {
   await mongoose.connect(mongoDB);
 }
 const UserSchema = new mongoose.Schema({
-    email: {
+  username: {
       type: String,
       required: true,
       unique:true
-    },
-    username: {
-        type: String,
     },
     password: {
         type: String,
