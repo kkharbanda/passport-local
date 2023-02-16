@@ -41,8 +41,11 @@ app.post('/login', passport.authenticate("local"),async (req,res)=>{
   // })
 
   app.get('/logout', (req, res, next) =>{
-   req.logout()
-    res.redirect('/');
+   req.logout((err)=>{
+    if (err) { return next(err); }
+  res.redirect('/');
+   })
+    
   });
   app.get("/" ,isauthenticate ,(req,res)=>{
     res.send("test webb");
